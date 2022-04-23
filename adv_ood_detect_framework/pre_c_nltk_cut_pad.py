@@ -5,7 +5,7 @@ import json
 import sys
 import nltk
 
-
+nltk.download('punkt')
 
 def truncate_decide_cut():
     print('Calculating the propoer truncate/padding sizes ... ')
