@@ -9,7 +9,7 @@ import os, sys, shutil
 import json
 from datetime import datetime
 
-# 接收参数
+
 parser = argparse.ArgumentParser(description='manual to this script')
 parser.add_argument('--clean_tempfiles', type=str, default = 'true')
 args = parser.parse_args()
@@ -30,7 +30,7 @@ class Logger(object):
     def write(self, message):
         self.terminal.write(message)
         self.log.write(message)
-        self.flush()  # 每次写入后刷新到文件中，防止程序意外结束
+        self.flush()  
 
     def flush(self):
         self.log.flush()
@@ -42,7 +42,7 @@ print('#########################################')
 print('# Writing basic info to exp_settings.json #')
 print('#########################################')
 
-# 记录基本信息
+
 settings_json = {"model foldername": date_str}
 with open('exp_settings.json', 'w') as f:
     json.dump(settings_json, f)
@@ -59,8 +59,8 @@ print('#########################################')
 print('\n')
 def mkdir(path):
     folder = os.path.exists(path)
-    if not folder:  # 判断是否存在文件夹如果不存在则创建为文件夹
-        os.makedirs(path)  # makedirs 创建文件时如果路径不存在会创建这个路径
+    if not folder:  
+        os.makedirs(path)  
         print("-- temp folder ", path, " created --")
     else:
         print("---  the folder already exists!  ---")
@@ -76,7 +76,7 @@ def rm_dir(path):
 
 
 
-working_path = os.path.abspath('.')  # 获得当前工作目录
+working_path = os.path.abspath('.') 
 mkdir(os.path.join(working_path, 'data'))
 mkdir(os.path.join(working_path, 'data/rawdata'))
 mkdir(os.path.join(working_path, 'data/rawdata-cleaned'))
@@ -147,15 +147,15 @@ e_test_result_check.check_result_on_test()
 print('Complete!')
 print('\n')
 
-# if args.clean_tempfiles == 'true':
-#     rm_dir(os.path.join(working_path, 'data'))
-#     rm_dir(os.path.join(working_path, 'otherdatafiles'))
-#     rm_dir(os.path.join(working_path, 'trainedmodels'))
-#
-# shutil.copy('exp_settings.json', 'final-ood-detector/')
-# os.rename(os.path.join(working_path, 'final-ood-detector'), os.path.join(working_path, ('final-ood-detector_model_' + date_str)))
-# print('Training complete, the OOD detector, as well as tokenizer, embedding matrix and settings are saved in folder: ')
-# print(os.path.join(working_path, ('final-ood-detector_model_' + date_str)))
+if args.clean_tempfiles == 'true':
+    rm_dir(os.path.join(working_path, 'data'))
+    rm_dir(os.path.join(working_path, 'otherdatafiles'))
+    rm_dir(os.path.join(working_path, 'trainedmodels'))
+
+shutil.copy('exp_settings.json', 'final-ood-detector/')
+os.rename(os.path.join(working_path, 'final-ood-detector'), os.path.join(working_path, ('final-ood-detector_model_' + date_str)))
+print('Training complete, the OOD detector, as well as tokenizer, embedding matrix and settings are saved in folder: ')
+print(os.path.join(working_path, ('final-ood-detector_model_' + date_str)))
 
 
 
