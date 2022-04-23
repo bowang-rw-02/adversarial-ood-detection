@@ -80,7 +80,6 @@ def check_result_on_test():
     MODES = ['INDC', 'OODD']
 
 
-    # 这样写是没问题的 可以放心用
     for mode in MODES:
         TEXTCNN = TextCNN(embedding_matrix, CLASS_NUM, KERNEL_NUM, KERNEL_SIZES).to(device)
         if mode == 'INDC':
