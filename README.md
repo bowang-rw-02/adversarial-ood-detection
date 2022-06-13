@@ -24,11 +24,13 @@ If you want to keep the preprocessed data and the trained intermediate networks,
 ## Reference
 If you find our study useful, please consider citing us:
 ```
-Bo Wang and Tsunenori Mine. 2022. Practical and Efficient Out-of-Domain
-Detection with Adversarial Learning. In The 37th ACM/SIGAPP Symposium
-on Applied Computing (SAC ’22), April 25–29, 2022, Virtual Event, . ACM,
-New York, NY, USA, 10 pages. https://doi.org/10.1145/3477314.3507089
+@inproceedings{wang2022practical,
+  title={Practical and efficient out-of-domain detection with adversarial learning},
+  author={Wang, Bo and Mine, Tsunenori},
+  booktitle={Proceedings of the 37th ACM/SIGAPP Symposium on Applied Computing},
+  pages={853--862},
+  year={2022}
+}
 ```
-The BibTeX format will be updated soon as the conference proceedings are released.
 
 
